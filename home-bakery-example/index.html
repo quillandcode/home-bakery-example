@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Celina Loaf & Hearth - Homemade baked goods with love. Find us at local community events and for weekend pickups.">
+    <meta name="keywords" content="Celina, baked goods, homemade, bread, pastries, cookies, local bakery, community events, fresh bread">
+    <meta name="author" content="Celina Loaf & Hearth">
+    <title>Celina Loaf & Hearth – Love in Every Loaf</title>
+
+    <!-- Google Fonts: Inter, Rubik Bubbles, Quicksand, and Fuzzy Bubbles -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Rubik+Bubbles&family=Quicksand:wght@400;500;700&family=Fuzzy+Bubbles:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind CSS Configuration (Optional, but good for custom colors/fonts) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        'rubik-bubbles': ['Rubik Bubbles', 'cursive'],
+                        'quicksand': ['Quicksand', 'sans-serif'],
+                        'fuzzy-bubbles': ['Fuzzy Bubbles', 'cursive'],
+                    },
+                    colors: {
+                        'soft-pink': '#FCE4EC',
+                        'blush': '#F8BBD0',
+                        'warm-cream': '#FFF8E1',
+                        'off-white': '#FAFAFA',
+                        'sky-blue': '#E0F2F7',
+                        'mint-green': '#E8F5E9',
+                        'golden-brown': '#FFB74D',
+                        'warm-tan': '#D7CCC8',
+                        'soft-peach': '#FFCCBC',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!--
+        SEO Considerations:
+        - <title>: Clear, concise, and includes keywords.
+        - <meta name="description">: A brief summary of the page content, including keywords.
+        - <meta name="keywords">: List of relevant keywords (less impactful than before, but still good practice).
+        - <meta name="author">: Identifies the creator.
+        - <meta name="viewport">: Essential for responsiveness, which Google favors for mobile-first indexing.
+        - Semantic HTML5 elements (header, nav, main, section, footer): Help search engines understand the structure and importance of content.
+        - Alt text for images (will be added when images is included).
+        - Clean, well-structured HTML for better crawlability.
+    -->
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Celina Loaf & Hearth",
+      "image": "assets/images/hero.png",
+      "url": "https://www.celinaloafandhearth.com",
+      "telephone": "+1-555-BAKE-LOVE",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Baker's Lane",
+        "addressLocality": "Celina",
+        "addressRegion": "TX",
+        "postalCode": "75009",
+        "addressCountry": "US"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "09:00",
+          "closes": "14:00"
+        }
+      ],
+      "servesCuisine": "Baked Goods",
+      "priceRange": "$$",
+      "hasMap": "https://maps.google.com/?q=123+Baker's+Lane,+Celina,+TX"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Our Delicious Offerings",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Product",
+            "name": "Artisan Sourdough",
+            "image": "https://placehold.co/400x300/FCE4EC/8D6E63?text=Artisan%20Sourdough",
+            "description": "A classic, tangy sourdough with a perfect chewy crust and airy interior.",
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "USD",
+              "price": "8.00"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Product",
+            "name": "Cinnamon Rolls",
+            "image": "https://placehold.co/400x300/FCE4EC/8D6E63?text=Cinnamon%20Rolls",
+            "description": "Soft, gooey, and generously swirled with cinnamon, topped with cream cheese frosting.",
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "USD",
+              "price": "4.50"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "Product",
+            "name": "Chocolate Chip Cookies",
+            "image": "https://placehold.co/400x300/FCE4EC/8D6E63?text=Chocolate%20Chip%20Cookies",
+            "description": "Chewy, classic cookies loaded with rich chocolate chips, baked to perfection.",
+            "offers": {
+              "@type": "Offer",
+              "priceCurrency": "USD",
+              "price": "2.50"
+            }
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="font-sans bg-warm-cream text-gray-800 antialiased">
+
+    <!-- Header Section: Contains navigation and potentially a logo -->
+    <header class="bg-off-white shadow-md py-4 sticky top-0 z-50">
+        <nav class="container mx-auto flex flex-col md:flex-row items-center justify-between px-4">
+            <!-- Title and Mobile Menu Toggle Button -->
+            <div class="flex items-center justify-between w-full md:w-auto">
+                <div class="text-2xl font-bold text-golden-brown">
+                    Celina Loaf & Hearth
+                </div>
+                <!-- Mobile Menu Toggle Button -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blush">
+                    <!-- SVG for a downward carat/arrow -->
+                    <svg id="menu-icon" class="w-6 h-6 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Navigation Links -->
+            <ul id="navigation-links" class="hidden md:flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-8 mt-4 md:mt-0 w-full md:w-auto transition-all duration-300 ease-in-out">
+                <li><a href="#home" class="block text-gray-700 hover:text-blush font-semibold transition duration-300 ease-in-out px-3 py-2 rounded-md">Home</a></li>
+                <li><a href="#about" class="block text-gray-700 hover:text-blush font-semibold transition duration-300 ease-in-out px-3 py-2 rounded-md">About Us</a></li>
+                <li><a href="#menu" class="block text-gray-700 hover:text-blush font-semibold transition duration-300 ease-in-out px-3 py-2 rounded-md">Menu</a></li>
+                <li><a href="#find-us" class="block text-gray-700 hover:text-blush font-semibold transition duration-300 ease-in-out px-3 py-2 rounded-md">Find Us</a></li>
+                <li><a href="#testimonials" class="block text-gray-700 hover:text-blush font-semibold transition duration-300 ease-in-out px-3 py-2 rounded-md">Testimonials</a></li>
+                <li><a href="#contact" class="block text-gray-700 hover:text-blush font-semibold transition duration-300 ease-in-out px-3 py-2 rounded-md">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+
+        <!-- Hero Section: The main visual and tagline -->
+        <section id="home" class="relative bg-soft-pink h-[500px] md:h-[600px] flex items-center justify-center text-center overflow-hidden">
+            <!-- Placeholder for Hero Image with natural flow bottom -->
+            <img src="assets/images/hero.png" alt="A cozy cartoon kitchen with an elderly woman baking bread rolls" class="absolute inset-0 w-full h-full object-cover object-bottom">
+            <!-- Changed items-center to items-end and added pb-16 for bottom padding -->
+            <div class="absolute inset-0 bg-black bg-opacity-30 flex items-end justify-center pb-16">
+                <!-- Changed max-w-xl to max-w-md -->
+                <div class="p-8 rounded-xl bg-black bg-opacity-20 shadow-lg max-w-md mx-auto">
+                    <!-- Applied Rubik Bubbles font and white text -->
+                    <h1 class="text-4xl md:text-5xl font-rubik-bubbles text-white mb-4 leading-tight">Celina Loaf & Hearth</h1>
+                    <!-- Updated font to Fuzzy Bubbles and color to golden-brown -->
+                    <p class="text-lg md:text-xl font-fuzzy-bubbles text-golden-brown mb-8">Love in every loaf</p>
+                    <a href="#menu" class="inline-block bg-blush hover:bg-pink-400 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">See Our Menu</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us / Our Story Section -->
+        <section id="about" class="container mx-auto py-16 px-4 text-center bg-off-white rounded-xl shadow-lg mt-[-50px] relative z-10">
+            <h2 class="text-4xl font-semibold text-golden-brown mb-8">About Us / Our Story</h2>
+            <p class="max-w-3xl mx-auto text-lg leading-relaxed mb-8">Welcome to Celina Loaf & Hearth, where every loaf and pastry is baked with a generous sprinkle of love and a dash of tradition. I'm Gertrude, and my kitchen is my happy place, filled with the comforting aromas of fresh bread and sweet treats. What started as a passion for baking for family and friends has blossomed into a small, heartfelt business dedicated to bringing wholesome, delicious homemade goodies to our community.</p>
+            <p class="max-w-3xl mx-auto text-lg leading-relaxed mb-12">From the first knead to the final golden crust, I pour my heart into every creation, using only the finest ingredients. It's more than just baking; it's about sharing joy, one delicious bite at a time. Thank you for supporting a local dream built on warmth, flavor, and a whole lot of love!</p>
+            <!-- Placeholder for a personal photo -->
+            <div class="bg-blush w-40 h-40 rounded-full mx-auto flex items-center justify-center shadow-lg overflow-hidden">
+                <img src="assets/images/headshot.jpg" alt="A cheerful elderly woman baking" class="w-full h-full object-cover">
+            </div>
+        </section>
+
+        <!-- Menu / Our Delicious Offerings Section -->
+        <section id="menu" class="container mx-auto py-16 px-4 text-center">
+            <h2 class="text-4xl font-semibold text-golden-brown mb-12">Our Delicious Offerings</h2>
+            <p class="text-lg mb-8">Explore our rotating selection of freshly baked delights!</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
+                    <div class="bg-warm-cream h-48 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                        <img src="assets/images/sourdough.png" alt="Artisan Sourdough Bread" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">Artisan Sourdough</h3>
+                    <p class="text-gray-600 mb-4">A classic, tangy sourdough with a perfect chewy crust and airy interior.</p>
+                    <p class="text-xl font-bold text-blush">$8.00</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
+                    <div class="bg-warm-cream h-48 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                        <img src="assets/images/cinnamon-rolls.png" alt="Cinnamon Rolls" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">Cinnamon Rolls</h3>
+                    <p class="text-gray-600 mb-4">Soft, gooey, and generously swirled with cinnamon, topped with cream cheese frosting.</p>
+                    <p class="text-xl font-bold text-blush">$4.50 each</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
+                    <div class="bg-warm-cream h-48 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                        <img src="assets/images/chocolate-chip-cookies.png" alt="Chocolate Chip Cookies" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-2">Chocolate Chip Cookies</h3>
+                    <p class="text-gray-600 mb-4">Chewy, classic cookies loaded with rich chocolate chips, baked to perfection.</p>
+                    <p class="text-xl font-bold text-blush">$2.50 each</p>
+                </div>
+                <!-- More menu items would go here -->
+            </div>
+        </section>
+
+        <!-- How to Order / Find Us Section -->
+        <section id="find-us" class="container mx-auto py-16 px-4 text-center bg-sky-blue rounded-xl shadow-lg">
+            <h2 class="text-4xl font-semibold text-golden-brown mb-8">How to Order / Find Us</h2>
+            <p class="text-lg max-w-3xl mx-auto mb-12">Getting your hands on our fresh-baked delights is easy!</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                <div class="text-left bg-white p-8 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-semibold text-gray-700 mb-4">Weekend Home Sales</h3>
+                    <p class="text-lg leading-relaxed mb-4">Visit us directly at our home kitchen every <strong class="text-blush">Saturday & Sunday from 9:00 AM - 2:00 PM</strong>. Look for the "Celina Loaf & Hearth" sign!</p>
+                    <p class="text-lg leading-relaxed">We're located at: <span class="font-semibold">123 Baker's Lane, Celina, TX 75009</span></p>
+                </div>
+
+                <div class="text-left bg-white p-8 rounded-xl shadow-md">
+                    <h3 class="text-2xl font-semibold text-gray-700 mb-4">Community Events</h3>
+                    <p class="text-lg leading-relaxed mb-4">We love being a part of local gatherings! Catch our booth at upcoming events:</p>
+                    <ul class="list-disc list-inside text-lg mb-6 space-y-2">
+                        <li><strong class="text-blush">[Celina Farmers Market]</strong> - Every Saturday, 8 AM - 1 PM</li>
+                        <li><strong class="text-blush">[Annual Fall Festival]</strong> - October 15th, 10 AM - 4 PM at Town Square</li>
+                        <li>Check our social media for last-minute event updates!</li>
+                    </ul>
+                    <h3 class="text-2xl font-semibold text-gray-700 mb-4">Pre-Orders</h3>
+                    <p class="text-lg leading-relaxed mb-6">Want to ensure you get your favorites? Pre-order by <strong class="text-blush">Thursday 5:00 PM</strong> for weekend pickup.</p>
+                    <a href="#contact" class="inline-block bg-blush hover:bg-pink-400 text-white font-bold py-2 px-6 rounded-full shadow-md transition duration-300 ease-in-out">Place Your Order</a>
+                </div>
+            </div>
+
+            <!-- Google Map Iframe -->
+            <div class="w-full h-96 rounded-lg shadow-inner mt-12 overflow-hidden p-8 bg-white">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3357.171938899986!2d-96.786641!3d33.325947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c38770c03dc55%3A0xd33db8965cc2738b!2sCelina%2C%20TX%2075089!5e0!3m2!1sen!2sus!4v1720719463043!5m2!1sen!2sus"
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+        </section>
+
+        <!-- Testimonials / Happy Customers Section -->
+        <section id="testimonials" class="container mx-auto py-16 px-4 text-center">
+            <h2 class="text-4xl font-semibold text-golden-brown mb-12">Testimonials / Happy Customers</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <blockquote class="bg-soft-pink p-8 rounded-xl shadow-md relative text-lg italic text-gray-700">
+                    <svg class="absolute top-4 left-4 w-10 h-10 text-blush opacity-50" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9.27 18.27h-3.41c-.69 0-1.26-.23-1.7-.69-.44-.46-.66-1.01-.66-1.65 0-.64.22-1.19.66-1.65.44-.46 1.01-.69 1.7-.69h1.7v-3.41c0-.69.23-1.26.69-1.7.46-.44 1.01-.66 1.65-.66.64 0 1.19.22 1.65.66.46.44.69 1.01.69 1.7v3.41c0 .69-.23 1.26-.69 1.7-.46.44-1.01.66-1.65.66h-1.7zM19.27 18.27h-3.41c-.69 0-1.26-.23-1.7-.69-.44-.46-.66-1.01-.66-1.65 0-.64.22-1.19.66-1.65.44-.46 1.01-.69 1.7-.69h1.7v-3.41c0-.69.23-1.26.69-1.7.46-.44 1.01-.66 1.65-.66.64 0 1.19.22 1.65.66.46.44.69 1.01.69 1.7v3.41c0 .69-.23 1.26-.69 1.7-.46.44-1.01.66-1.65.66h-1.7z"/>
+                    </svg>
+                    <p class="mb-4 pt-4">"The cinnamon rolls are absolutely divine! The best I've ever tasted – so soft and full of flavor. A true weekend treat!"</p>
+                    <footer class="text-right font-semibold text-blush">— Sarah L.</footer>
+                </blockquote>
+                <blockquote class="bg-soft-pink p-8 rounded-xl shadow-md relative text-lg italic text-gray-700">
+                    <svg class="absolute top-4 left-4 w-10 h-10 text-blush opacity-50" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9.27 18.27h-3.41c-.69 0-1.26-.23-1.7-.69-.44-.46-.66-1.01-.66-1.65 0-.64.22-1.19.66-1.65.44-.46 1.01-.69 1.7-.69h1.7v-3.41c0-.69.23-1.26.69-1.7.46-.44 1.01-.66 1.65-.66.64 0 1.19.22 1.65.66.46.44.69 1.01.69 1.7v3.41c0 .69-.23 1.26-.69 1.7-.46.44-1.01.66-1.65.66h-1.7zM19.27 18.27h-3.41c-.69 0-1.26-.23-1.7-.69-.44-.46-.66-1.01-.66-1.65 0-.64.22-1.19.66-1.65.44-.46 1.01-.69 1.7-.69h1.7v-3.41c0-.69.23-1.26.69-1.7.46-.44 1.01-.66 1.65-.66.64 0 1.19.22 1.65.66.46.44.69 1.01.69 1.7v3.41c0 .69-.23 1.26-.69 1.7-.46.44-1.01.66-1.65.66h-1.7z"/>
+                    </svg>
+                    <p class="mb-4 pt-4">"The sourdough bread is a weekly staple in our house now. Perfectly crusty outside, wonderfully chewy inside. It elevates every meal!"</p>
+                    <footer class="text-right font-semibold text-blush">— Mark T.</footer>
+                </blockquote>
+                <!-- More testimonials would go here -->
+            </div>
+        </section>
+
+        <!-- Contact Us Section -->
+        <section id="contact" class="container mx-auto py-16 px-4 text-center bg-off-white rounded-xl shadow-lg">
+            <h2 class="text-4xl font-semibold text-golden-brown mb-8">Contact Us</h2>
+            <p class="text-lg max-w-2xl mx-auto mb-12">Have a question, custom order request, or just want to say hello? We'd love to hear from you!</p>
+            <form class="flex flex-col max-w-lg mx-auto p-8 bg-white rounded-xl shadow-lg">
+                <label for="name" class="block text-left mb-2 font-semibold text-gray-700">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blush focus:border-transparent mb-4">
+
+                <label for="email" class="block text-left mb-2 font-semibold text-gray-700">Email:</label>
+                <input type="email" id="email" name="email" placeholder="your.email@example.com" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blush focus:border-transparent mb-4">
+
+                <label for="message" class="block text-left mb-2 font-semibold text-gray-700">Message:</label>
+                <textarea id="message" name="message" rows="5" placeholder="Your message here..." class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blush focus:border-transparent mb-6"></textarea>
+
+                <button type="submit" class="bg-blush hover:bg-pink-400 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">Send Message</button>
+            </form>
+            <div class="text-center mt-12 text-lg">
+                <p class="mb-2">Email: <a href="mailto:info@celinaloafandhearth.com" class="text-blush hover:underline">info@celinaloafandhearth.com</a></p>
+                <p>Follow us on:
+                    <a href="#" class="text-blush hover:text-pink-600 mx-2 transition duration-300 ease-in-out">Facebook</a> |
+                    <a href="#" class="text-blush hover:text-pink-600 mx-2 transition duration-300 ease-in-out">Instagram</a>
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-off-white py-8 mt-16 shadow-inner">
+        <p class="text-center text-gray-600 text-sm">&copy; 2024 Celina Loaf & Hearth. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const navigationLinks = document.getElementById('navigation-links');
+            const menuIcon = document.getElementById('menu-icon');
+
+            mobileMenuButton.addEventListener('click', function() {
+                // Toggle visibility
+                navigationLinks.classList.toggle('hidden');
+                navigationLinks.classList.toggle('flex');
+                navigationLinks.classList.toggle('flex-col'); // Ensure it stacks vertically when visible
+
+                // Toggle icon rotation
+                menuIcon.classList.toggle('rotate-180');
+            });
+
+            // Close menu when a link is clicked (for single-page navigation)
+            navigationLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    // Only hide if it's currently visible (i.e., on mobile)
+                    if (!navigationLinks.classList.contains('hidden') && window.innerWidth < 768) {
+                        navigationLinks.classList.add('hidden');
+                        navigationLinks.classList.remove('flex', 'flex-col');
+                        menuIcon.classList.remove('rotate-180');
+                    }
+                });
+            });
+
+            // Handle window resize to ensure correct state for desktop
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 768) { // Tailwind's 'md' breakpoint
+                    navigationLinks.classList.remove('hidden', 'flex-col');
+                    navigationLinks.classList.add('flex', 'flex-row');
+                    menuIcon.classList.remove('rotate-180'); // Reset icon on desktop
+                } else {
+                    // If resizing down from desktop, ensure it's hidden by default on mobile
+                    // Only hide if the button is visible (i.e., on mobile layout)
+                    if (!mobileMenuButton.classList.contains('hidden')) {
+                        navigationLinks.classList.add('hidden');
+                        navigationLinks.classList.remove('flex', 'flex-col');
+                        menuIcon.classList.remove('rotate-180');
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
